@@ -52,6 +52,3 @@ $ npm run test
 # test coverage
 $ npm run test:cov
 ```
-
-
-# Build With K8S
