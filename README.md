@@ -65,12 +65,14 @@ PAYMENT_SERVICE_PORT=4002
 MONGODB_DATABASE_URI=mongodb://mongo-service:27017/orders-api
 #Thay đổi localhost băng tên service sẽ đặt khi chạy trong file service.yaml (kubectl apply -f service.yaml)
 ```
+
 ## Push images
 ```bash
 # Build docker file
 $ docker build -t name_images .
 
 #Push images Dockerhub
+$ docker login --login dockerhub
 $ docker tag name_images:latest username_dockerhub/nestjs:latest
 $ docker push username_dockerhub/nestjs:latest
 ```
