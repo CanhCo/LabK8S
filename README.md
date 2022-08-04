@@ -80,7 +80,7 @@ $ docker push username_dockerhub/nestjs:latest
 ## Create Kubernetes pod(service) .yml
 ```bash
 
-$ vi pod.yml
+$ vi service.yml
 
 apiVersion: v1
 kind: Pod
