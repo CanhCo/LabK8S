@@ -1,0 +1,26 @@
+include:
+- project: 'global/vmo-devops-internal/pipeline-template'
+  ref: main
+  file: '/global/docker/.gitlab-ci.yml'
+variables:
+  #Tag of the image
+  TAG: latest #your tag of image you want
+  #With AWS, the information of account will store in variables for the security reason
+  #Create manual 2 repository for images and cache. Below is example.
+  REPOSITORY: aws
+  AWS_ACCOUNT_ID: 164211040596
+  REGION: ap-southeast-1
+  AWS_REPOSITORY: 164211040596.dkr.ecr.ap-southeast-1.amazonaws.com/stl12-demo
+  CI_REGISTRY_CACHE: 164211040596.dkr.ecr.ap-southeast-1.amazonaws.com/stl12-demo-cache
+
+  #extends: .push_to_gitlab
+  #WITH gitlab, gitlab just need 1 variable
+  #REPOSITORY: gitlab
+
+stages:
+    - buildAndPush
+to_aws:
+  tags:
+    - swat-devops
+  stage: buildAndPush
+  extends: .push_to_aws
